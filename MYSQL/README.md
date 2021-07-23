@@ -6,7 +6,8 @@
 
 ## Install 
 
-
+follow instruction in this link carrefully
+https://forum.manjaro.org/t/howto-install-apache-mariadb-mysql-php-lamp/13000
 
 install mysql and mariadb then we need some commands
 
@@ -17,7 +18,7 @@ sudo systemctl stop mariadb.service
 
 ```
 
-
+you must login root without sudo after this
 
 
 
@@ -45,13 +46,6 @@ sudo systemctl start mariadb.service
 sudo systemctl stop mariadb.service
 ```
 
-Now I have a database access and easy mysql command without pass
-
-:warning: by defauly mysql creates db files in /var/lib/mysql path and it is better to change path or permission for example by
-
-```bash
-chmod -R 777 /var/lib/mysql
-```
 
 
 
