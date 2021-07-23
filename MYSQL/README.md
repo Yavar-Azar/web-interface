@@ -6,7 +6,8 @@
 
 ## Install 
 
-
+follow instruction in this link carrefully
+https://forum.manjaro.org/t/howto-install-apache-mariadb-mysql-php-lamp/13000
 
 install mysql and mariadb then we need some commands
 
@@ -17,7 +18,7 @@ sudo systemctl stop mariadb.service
 
 ```
 
-
+you must login root without sudo after this
 
 
 
