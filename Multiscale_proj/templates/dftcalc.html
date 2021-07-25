@@ -1,0 +1,32 @@
+{% extends 'layout.html' %}
+{% block body %}
+<div id="promto1">
+  <div  class="jumbotron">
+    <h1>Density Functional Theory</h1>
+    <p class="lead">DFT Codes to extract quantum-based parameters</p>
+  </div>
+   		<div  class="container">
+   			<h2>QE Calculations</h2>
+   			<div id="dftpage" class="row">
+   				<div class="col-md-4 colbackground">
+   					<h3>Build</h3>
+   					<p>Build input files</p>
+   					<a href="/dftcalc" class="btn btn-primary btn-lg">Builder</a>
+   				</div>
+   				<div class="col-md-4 colbackground">
+   					<h3>Submit-Job</h3>
+   					<p>Select Job type and submit</p>
+   					<a href="/dftcalc" class="btn btn-primary btn-lg">Job-submit</a>
+   				</div>
+   				<div class="col-md-4 colbackground">
+   					<h3>Post-Process</h3>
+   					<p>Results post processing</p>
+   					<a href="/dftcalc" class="btn btn-primary btn-lg">Post-Process</a>
+   				</div>
+   			</div>
+   		</div>
+
+
+
+</div>
+{% endblock %}

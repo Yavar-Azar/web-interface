@@ -1,0 +1,6 @@
+[mysql]
+user=user
+password=pass
+[mysqladmin]
+user=user
+password=pass

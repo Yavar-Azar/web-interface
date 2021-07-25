@@ -66,3 +66,18 @@ mysql = MySQL(app)
 
 ```
 
+## Create a table in mysql
+
+- First we create a user table
+
+```sql
+CREATE TABLE users(id INT(11) AUTO_INCREMENT PRIMARY KEY, name VARCHAR(100), email VARCHAR(100), username VARCHAR(40), password VARCHAR(100), register_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP);
+```
+
+- Also we need other database tables such as article
+
+  ```sql
+  CREATE TABLE articles(id INT(11) AUTO_INCREMENT PRIMARY KEY, name VARCHAR(100), title VARCHAR(255), author VARCHAR(100), password VARCHAR(100), register_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP);
+  ```
+
+  

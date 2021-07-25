@@ -1,0 +1,31 @@
+
+#promto {
+  background: url(../img/back.png) no-repeat;
+  background-size: cover;
+  padding: 20px;
+  margin-top: 30px;
+ }
+
+ #promto .jumbotron {
+  background-color: rgba(255,255,255,0.60);
+  padding: 20px;
+  text-align: center;
+ }
+
+
+
+@media (min-width:768px) {
+  .col-md-4 {
+    -ms-flex: 0 0 33.333333%;
+    flex: 0 0 33.333333%;
+    max-width: 30.333333%;
+    margin-top: 10px;
+
+  }
+}
+.colbackground {
+  padding: 15px;  /* Just an example padding */
+  background: lightgrey; /* Just an example color */
+  background-clip: padding-box;  
+  margin-right:20px; 
+}

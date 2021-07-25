@@ -1,0 +1,68 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>formnew</title>
+             <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<style>
+@media screen and (min-width: 768px) {
+    form {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding: 30px;
+        margin-top: 20px;
+
+    }
+ 
+    form div {
+        width: 90%;
+    }
+ 
+}
+</style>
+<!-- End "Align 3 fields horizontally" || Help center -->
+</head>
+<body style="margin:40px;">
+<h1>Upload cif file</h1>
+<div style="background-color: #dcdaeb;">
+<form action="{{ url_for('cifupload') }}" enctype="multipart/form-data" method="POST">
+    {{ upload_form.csrf_token }} <br>
+    {{ upload_form.ciffile}}
+     <input type="submit" value="Submit"> <br>
+     <div  class="row">
+        <div class="col-md-4">
+            <h3   style="color:#544e91;  background-color: {{backcol}};"> {{fname}}</h3>
+        </div>
+        <div class="col-md-8">
+            <pre  style="height: 100px; margin-top: 20px; background-color:#f3edfa;">{{ content }}</pre>
+        </div>
+         
+    </div>
+</form>
+</div>
+<br>
+<hr>
+<h1>Input Builder</h1>
+<div style="background-color: #F6FEFA">    
+<form action="{{ url_for('inpvalues') }}" method="POST">
+    {{ input_form.calculation }}
+    {{ input_form.orthomethod }}
+    {{ input_form.ecut.placeholder }}
+    {{ input_form.ecut }}
+    {{ input_form.ecutrho.placeholder }}
+    {{ input_form.ecutrho }}
+    {{ input_form.mixbeta.placeholder }} 
+    {{ input_form.mixbeta }}
+    {{ input_form.degauss.placeholder }} <br>
+    {{ input_form.degauss }} 
+    {{ input_form.nstep.placeholder }}   
+    {{ input_form.nstep }}
+     <input type="submit" value="BUILD"> <br>
+</form>
+</div>
+<hr>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="//cdn.ckeditor.com/4.6.2/basic/ckeditor.js"></script>
+</body>
+</html>
