@@ -1,0 +1,98 @@
+{% extends 'layout.html' %}
+
+{% block body %}<head>
+    <meta charset="utf-8">
+    <title>formnew</title>
+             <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <style type="text/css">
+        #contentcode {
+            height: 50px;
+            margin-left: 25px;
+     
+        }
+        #combobox1 {
+            margen-left: 50px;
+            height: 30px;
+            width: 150px;
+        }
+        #combobox2 {
+            margen-left: 50px;
+            height: 30px;
+            width: 150px;
+        }
+        #combobox3 {
+            margen-left: 50px;
+            height: 30px;
+            width: 150px;
+        }
+    </style>
+<!-- End "Align 3 fields horizontally" || Help center -->
+</head>
+<body style="margin:40px;">
+<h1>Upload cif file</h1>
+<div  style="background-color: #dcdaeb; margin-left: 30px;">
+<form style="margin-left:30px " action="{{ url_for('cifupload') }}" enctype="multipart/form-data" method="POST">
+    {{ upload_form.csrf_token }} <br>
+    {{ upload_form.ciffile}}
+     <input style="height: 30px; width: 100px; margin:20px;" type="submit" value="Submit"> <br>
+     <div  class="row">
+        <div class="col-md-4">
+            <h3   style="color:#544e91;  background-color: {{backcol}};"> {{fname}}</h3>
+        </div>
+        <div class="col-md-8">
+            <pre  style="height: 100px; margin-top: 20px; margin-right: 40px; background-color:#f3edfa;">{{ content }}</pre>
+        </div>
+         
+    </div>
+</form>
+</div>
+
+<h1>Upload pseudo files</h1>
+<h3><span>&#9888;   Check number of selected pseudo files and their compatibility</span>
+</h3>
+<div style="background-color: #dcdaeb; margin-left:30px;">
+<form  style="margin-left:30px "  action="{{ url_for('pseudoupload') }}" enctype="multipart/form-data" method="POST">
+    {{ pseudo_form.csrf_token }} <br>
+    {{ pseudo_form.pseudofiles}} <br>
+     <br> <input style="height: 30px; width: 100px;" type="submit" value="Submit"> <br>
+     <h3>list of selected pseudo files are; </h3>
+     {% for pf in pseudo_filenames %}
+      <h4>{{pf}}</h4>
+       {% endfor %}
+</form>
+</div>
+
+
+
+
+<br>
+<hr>
+<h1>Input Builder</h1>
+<div style="background-color: #F6FEFA; margin-left:50px";>    
+<form action="{{ url_for('inpvalues') }}" method="POST">
+    {{ input_form.csrf_token }} <br>
+        {{ input_form.calculation }}
+        {{ input_form.orthomethod }}
+        {{ input_form.spin }}   <br>  <br>
+        {{ input_form.prefix.placeholder }}
+        {{ input_form.prefix }}
+        {{ input_form.ecut.placeholder }}
+        {{ input_form.ecut }}   <br> <br>
+        {{ input_form.ecutrho.placeholder }}
+        {{ input_form.ecutrho }}
+        {{ input_form.mixbeta.placeholder }} 
+        {{ input_form.mixbeta }}
+        {{ input_form.degauss.placeholder }} <br> <br>
+        {{ input_form.degauss }} 
+        {{ input_form.nstep.placeholder }}   
+        {{ input_form.nstep }}
+     <input  style="height: 30px; width: 100px; margin-left: 60px;" type="submit" value="BUILD"> <br>
+</form>
+</div>
+<hr>
+
+
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="//cdn.ckeditor.com/4.6.2/basic/ckeditor.js"></script>
+{% endblock %}

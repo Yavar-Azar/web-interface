@@ -1,0 +1,24 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<div id="promto">
+  <div  class="jumbotron">
+    <h1>Welcome To IMMS</h1>
+    <p class="lead">Intergrated Multiscale Simulation Suite</p>
+    {% if session.logged_in == NULL %}
+      <a href="/register" class="btn btn-primary btn-lg">Register</a>
+      <a href="/login" class="btn btn-success btn-lg">Login</a>
+    {% endif %}
+  </div>
+</div>
+  <div  id="description">
+    <h2>Package Structure</h2>
+    <p style="font-size:150%;" >
+    The performance of materials used in nuclear technologies is controlled by mechanisms that have their origin at the atomic level. here we have calculators in three scale
+    <p>
+    <a href="/calculator" class="btn btn-primary btn-lg"  style="width: 180px;">CALCULATORS</a>
+    </p>
+    <p style="font-size:150%;  "> and Database for our materials</p>
+    <a href="/database" class="btn btn-primary btn-lg" style="width: 180px;">DATABASE</a>
+  </div>
+{% endblock %}

@@ -1,0 +1,53 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+  <h1>Calculators</h1>
+  <p>Here we have our calculators in three category of ATOMISTIC, MESO, nad MACRO</p>
+  <div>
+  	<h2>Atomistic calculations</h2>
+   </div>
+   <div>
+   		<div  class="container">
+   			<div id="atomcalc" class="row">
+   				<div class="col-md-4 colbackground">
+   					<h3>DFT Calculators</h3>
+   					<p>Here we use dft calculators as </p>
+   					<a href="/dftcalc" class="btn btn-primary btn-lg">DFT-Calculators</a>
+   				</div>
+   				<div class="col-md-4 colbackground">
+   					<h3>MD Calculators</h3>
+   					<p>Molecular Dynamic is main tool to extract</p>
+   					<a href="/mdcalc" class="btn btn-primary btn-lg">MD-Calculators</a>
+   				</div>
+   				<div class="col-md-4 colbackground">
+   					<h3>GB Calculators</h3>
+   					<p>Make a grain model for your cif/poscar file</p>
+   					<a href="/gbcalc" class="btn btn-primary btn-lg">Make GB</a>
+   				</div>
+   			</div>
+   		</div>
+   </div>
+   <hr>
+   <h2>Mesoscale calculations</h2>
+   <div>
+     <div class="container">
+          <div class="col-md-4 colbackground">
+          <h3>Fission Gas release</h3>
+            <p>Here we use dft calculators as </p>
+            <a href="/calculator" class="btn btn-primary btn-lg">FGR</a>
+          </div>
+          <div class="col-md-4 colbackground">
+            <h3>Phase Field </h3>
+            <p>Molecular Dynamic is main tool to extract</p>
+            <a href="/calculator" class="btn btn-primary btn-lg">MD-Calculators</a>
+          </div>
+          <div class="col-md-4 colbackground">
+            <h3>Rate-Theory</h3>
+            <p></p>
+            <a href="/calculator" class="btn btn-primary btn-lg">QMMM-Calculators</a>
+          </div>
+        </div>
+      </div>
+     </div>
+   </div>
+{% endblock %}
