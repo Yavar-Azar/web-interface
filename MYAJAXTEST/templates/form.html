@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>AJAX Example</title>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=default'></script>
+
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+	<script src="{{ url_for('static', filename='js/form.js') }}"></script>
+</head>
+<body>
+
+<div  class="row">
+	
+	<br><br><br><br>
+	<div  class="col-md-4"  style="background-color: #c7ced4; margin: 30px; padding: 30px; border-radius:20px">
+	  <div class="form-group">
+	  	<h2>Find GB</h2>
+	    <label  for="rotaxis">Rotation axis</label>
+	    <input type="text" class="form-control"  id="rotaxis" placeholder="001">
+	  </div>
+	  <div class="form-group" >
+	    <label  for="maxsigma" style="display: inline-block;">max Sigma</label>
+	    <input type="text" class="form-control" id="maxsigma"  placeholder="First Name">
+	  </div>
+	  <button type="submit" class="btn btn-primary"  id='findplane'>Find Planes</button>
+		<br>
+		<div id="successAlert" class="alert alert-success" role="alert" style="display:none;"></div>
+		<div id="errorAlert" class="alert alert-danger" role="alert" style="display:none;"></div>
+		<div>
+	</div>
+
+	</div>
+
+
+
+	<div class="col-md-6"  style="background-color: #c7ced4; margin: 30px; padding: 30px; border-radius:20px; "  >
+		<h2>Build Grain Boundary Model</h2>
+
+		<label  for="rotaxis2">Rotation axis</label>
+		<div>
+				    <input type="text" class="form-control"  id="rotaxis2" placeholder="001">
+
+		</div>
+
+		  <label  for="sigma">$$ \Sigma $$ </label>
+	      <input type="text" class="form-control" id="sigma"  placeholder="First Name">
+
+
+		   <label  for="gbplane"> GB plane</label>
+	      <input type="text" class="form-control" id="gbplane"  placeholder="120">
+
+  		   <label  for="outformat"> output format</label>
+  		   <select  id="outformat">
+  		   	<option val="cif">cif</option>
+  		   	<option val="poscar">poscar</option>
+  		   </select>
+  		   <br> <br>
+   		  <button type="submit" class="btn btn-primary"  id='makeinter'>Make gb</button>
+
+
+	</div>
+
+
+
+
+</div>
+
+
+</body>
+</html>
