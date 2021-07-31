@@ -88,7 +88,7 @@ app.config['MAX_CONTENT_LENGTH'] = 80 * 1024 * 1024  # 4MB max-limit.
 # Config MySQL
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = '1234567'
+app.config['MYSQL_PASSWORD'] = '123456'
 app.config['MYSQL_DB'] = 'myflaskapp'
 app.config['MYSQL_CURSORCLASS'] = 'DictCursor'
 # init MYSQL
