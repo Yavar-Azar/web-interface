@@ -33,6 +33,20 @@ sudo systemctl enable mysql
 you must login root without sudo after this
 
 
+if there is any problem and you need sudo go throw below steps
+
+
+```bash
+
+$ sudo mysql -u root # I had to use "sudo" since is new installation
+
+mysql> USE mysql;
+mysql> UPDATE user SET plugin='mysql_native_password' WHERE User='root';
+mysql> FLUSH PRIVILEGES;
+mysql> exit;
+
+$ sudo service mysql restart
+```
 
 ## Mysql
 
