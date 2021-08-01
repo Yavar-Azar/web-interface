@@ -71,7 +71,10 @@ and then restart sql service
 sudo systemctl start mariadb.service
 sudo systemctl stop mariadb.service
 ```
-
+for ubuntu check below lib 
+```bash
+sudo apt install libmysqlclient-dev
+```
 
 
 
