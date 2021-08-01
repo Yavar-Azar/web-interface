@@ -25,6 +25,8 @@ sudo systemctl stop mariadb.service
 
 Launch at reboot
 
+sudo systemctl enable mysql
+
 you must login root without sudo after this
 
 
