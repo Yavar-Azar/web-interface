@@ -23,6 +23,8 @@ sudo systemctl stop mariadb.service
 
 ```
 
+Launch at reboot
+
 you must login root without sudo after this
 
 
