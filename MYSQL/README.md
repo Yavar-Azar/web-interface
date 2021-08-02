@@ -78,7 +78,7 @@ sudo apt install libmysqlclient-dev
 
 
 
-### Flask and mysql link
+### Flask and mysql link 
 
 add these lines to your *app.py* to set database
 
@@ -95,6 +95,35 @@ mysql = MySQL(app)
 
 ```
 
+### Standard method to Establish a Connection With MySQL Server
+
+```bash
+pip install mysql-connector-python
+```
+
+and we can create and edit mysql db in a python code
+
+```python
+from getpass import getpass
+from mysql.connector import connect, Error
+
+try:
+    with connect(
+        host="localhost",
+        user=input("Enter username: "),
+        password=getpass("Enter password: "),
+    ) as connection:
+        print(connection)
+except Error as e:
+    print(e)
+```
+
+
+
+
+
+
+
 ## Create a table in mysql
 
 - First we create a user table
@@ -106,7 +135,10 @@ CREATE TABLE users(id INT(11) AUTO_INCREMENT PRIMARY KEY, name VARCHAR(100), ema
 - Also we need other database tables such as article
 
   ```sql
-  CREATE TABLE articles(id INT(11) AUTO_INCREMENT PRIMARY KEY, name VARCHAR(100), title VARCHAR(255), author VARCHAR(100), password VARCHAR(100), register_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP);
+  CREATE TABLE articles(id INT(11) AUTO_INCREMENT PRIMARY KEY, name VARCHAR(100), title VARCHAR(255), author VARCHAR(100), body TEXT, create_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP);
   ```
+
+
+- Creat cif table containing an array
 
   
