@@ -140,5 +140,7 @@ CREATE TABLE users(id INT(11) AUTO_INCREMENT PRIMARY KEY, name VARCHAR(100), ema
 
 
 - Creat cif table containing an array
-
+```sql
+CREATE TABLE ciftable(id INT(11) AUTO_INCREMENT PRIMARY KEY, cifname VARCHAR(100), symbol VARCHAR(255), spg VARCHAR(100), author VARCHAR(100), create_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP);
+```
   
