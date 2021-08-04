@@ -19,6 +19,7 @@ def cifanalyze(ciffile):
 	elementlist = temp.get_chemical_symbols()
 	unitcell  = temp.cell
 	positions = temp.positions
+	symbol = temp.symbols
 	spgroup = spglib.get_spacegroup(temp)
 	nat = len(elementlist)
  
@@ -32,7 +33,9 @@ def cifanalyze(ciffile):
 		fn.write('{:s}{:8.4f}{:8.4f}{:8.4f}\n'.format(val, positions[idx,0], positions[idx,1], positions[idx,2]))
 	fn.write("\n------------------------------------------\n")
 
+
 	cifdict.update({"elements":elementlist})
+	cifdict.update({"symbol":symbol})
 	cifdict.update({"cell": unitcell})
 	cifdict.update({"positions":positions})
 	cifdict.update({"spgroup":spgroup})

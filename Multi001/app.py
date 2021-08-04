@@ -1,5 +1,5 @@
 
-from flask import Flask, render_template, flash, redirect, url_for, session, request, logging
+from flask import Flask, render_template, flash, redirect, url_for, session, request, logging, jsonify
 #from data import Articles
 from flask_mysqldb import MySQL
 from wtforms import Form, StringField, TextAreaField, PasswordField, validators ,DecimalField, IntegerField, SelectField, MultipleFileField, SubmitField
@@ -179,6 +179,55 @@ def article(id):
     return render_template('article.html', article=article)
 
 
+#========================================================  SHOW CIF FILES  ============================================
+# cif collection
+@app.route('/database')
+@csrf.exempt
+def cifdata():
+    # Create cursor
+    cur = mysql.connection.cursor()
+
+    # Get ciftable
+    result = cur.execute("SELECT * FROM ciftable")
+
+    cifdata = cur.fetchall()
+
+    if result > 0:
+        print("cif data found")
+        return render_template('dbpage.html', cifdata=cifdata)
+    else:
+        print("cif data NOT found")
+        msg = 'No cif file Found'
+        return render_template('dbpage.html', msg=msg)
+    # Close connection
+    cur.close()
+
+
+#Single cif file
+@app.route('/singlecif/<string:id>/')
+@csrf.exempt
+def onecif(id):
+    # Create cursor
+    cur = mysql.connection.cursor()
+
+    # Get article
+    result = cur.execute("SELECT * FROM ciftable WHERE id = %s", [id])
+
+    singlecif = cur.fetchone()
+
+    return render_template('singlecif.html', singlecif=singlecif)
+
+
+
+    ########################################################################################################
+
+
+
+
+
+
+
+
 # Register Form Class
 class RegisterForm(Form):
     name = StringField('Name', [validators.Length(min=1, max=50)])
@@ -278,7 +327,9 @@ def logout():
     flash('You are now logged out', 'success')
     return redirect(url_for('login'))
 
-# Dashboard
+
+
+########### Dashboard
 @app.route('/dashboard')
 @csrf.exempt
 @is_logged_in
@@ -293,13 +344,75 @@ def dashboard():
 
     articles = cur.fetchall()
 
+
+    cifresult = cur.execute("SELECT * FROM ciftable WHERE author = %s", [session['username']])
+    ciftable = cur.fetchall()
+
+
     if result > 0:
-        return render_template('dashboard.html', articles=articles)
+        return render_template('dashboard.html', articles=articles, ciftable=ciftable)
     else:
         msg = 'No Articles Found'
-        return render_template('dashboard.html', msg=msg)
+        return render_template('dashboard.html', msg=msg, ciftable=ciftable)
     # Close connection
     cur.close()
+
+
+
+######################################  add cif file
+
+@app.route('/dashboard/addcif', methods=['POST'])
+@csrf.exempt
+@is_logged_in
+def addcif():
+
+    mycif= request.files['myciffile']
+    mycifname = secure_filename(mycif.filename)
+
+    cifbase=mycifname[:-3]
+
+    if len(cifbase) > 11:
+        mycifname=cifbase[:10]+".cif"
+
+
+    ciffullpath=os.path.join(SESSIONDIR, mycifname)
+    #  upload in server
+    mycif.save(ciffullpath)
+    print("file saved in    "+SESSIONDIR)
+
+    cifdata = cifanalyze(ciffullpath)
+    print(cifdata)
+
+    if request.method =='POST':
+        symbol = cifdata['symbol']
+        spg = cifdata['spgroup']
+        cifname = mycifname
+
+
+        # Create Cursor
+        cur = mysql.connection.cursor()
+
+        # Execute
+        cur.execute("INSERT INTO ciftable(cifname, symbol, spg, author) VALUES(%s, %s, %s, %s)",(cifname, symbol, spg, session['username']))
+
+        # Commit to DB
+        mysql.connection.commit()
+
+
+        #Close connection
+        cur.close()        
+
+        print("added to db")
+
+        flash('cif added', 'success')
+        msg ="OK"
+        return redirect(url_for('dashboard'))
+    return render_template('dashbord.html')
+
+
+
+
+
 
 # Article Form Class
 class ArticleForm(Form):
@@ -333,6 +446,8 @@ def add_article():
         return redirect(url_for('dashboard'))
 
     return render_template('add_article.html', form=form)
+
+
 
 
 # Edit Article

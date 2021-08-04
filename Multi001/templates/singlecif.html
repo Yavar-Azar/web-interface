@@ -1,0 +1,13 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+  <h2>{{singlecif.cifname}}</h2>
+  <small>Created by {{singlecif.author}}</small>
+  <hr>
+  <div>
+    <div style="display: inline-block;">
+         <h4 >Space group is  <span style="color:magenta">{{singlecif.spg}} </span> </h4>
+    </div>
+   <h4>Chemical Symbol is <span style="color:magenta">{{singlecif.symbol}}</span></h4>
+  </div>
+{% endblock %}

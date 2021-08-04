@@ -20,7 +20,6 @@ def process():
 
 
 	resdict=axisdata(rotaxlist, maxsigmaint)
-
 	sigmalist=list(resdict.keys())
 
 	tempdict={}

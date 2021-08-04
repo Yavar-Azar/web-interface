@@ -1,8 +1,56 @@
 {% extends 'layout.html' %}
-
 {% block body %}
+
   <h1>Dashboard <small> Welcome {{session.username}}</small></h1>
-  <a class="btn btn-success" href="/add_article"> Add Article</a>
+
+ <hr>
+
+   <h2>Import cif files</h2>
+
+ <div class="row" >
+     <input type="file"  id="ciffile"  style="display:inline-block;">  </input>
+     <button  type ="submit" class="btn btn-primary" style="width: 100px;" id="addcif">add cif file</button>
+  </div>
+  <hr>
+  <table class="table table-striped">
+    <tr>
+      <th>ID</th>
+      <th> space_group</th>
+      <th> symbol</th>
+      <th> cifname</th>
+      <th> Author</th>
+      <th> Date</th>
+      <th> </th>
+      <th></th>
+      <th></th>
+    </tr>
+  <hr>
+   {% for cif in ciftable %}
+      <tr>
+        <td>{{cif.id}}</td>
+        <td>{{cif.spg}}</td>
+        <td>{{cif.symbol}}</td>
+        <td>{{cif.cifname}}</td>
+        <td>{{cif.author}}</td>      
+        <td>{{cif.create_date}}</td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    {% endfor %}
+</table>
+
+
+<br>
+<hr>
+<br>
+<hr>
+
+
+
+
+
+ <a class="btn btn-success" href="/add_article"> Add Article</a>
   <hr>
   <table class="table table-striped">
     <tr>
@@ -29,4 +77,34 @@
       </tr>
     {% endfor %}
   </table>
+
+
+{% block scripts %}
+ 
+ <script type="text/javascript">
+   $('#addcif').on('click', function() {
+      var form_data = new FormData();
+      form_data.append("myciffile", $("#ciffile")[0].files[0]);
+
+      $.ajax({
+      data : form_data,
+      cache: false,
+      contentType: false,
+      processData: false,
+      type : 'POST',
+      url : '/dashboard/addcif'
+    })
+    .done(function(response) {
+        console.log(response.result);
+    });
+    });
+
+ </script>
+
 {% endblock %}
+
+{% endblock %}
+
+
+
+

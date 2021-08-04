@@ -1,0 +1,30 @@
+
+
+    var fd = new FormData();
+    var files = document.getElementById('ciffile')[0].files;
+        
+    // Check file selected or not
+    if(files.length > 0 ){
+           fd.append('file',files[0]);
+         }
+    else {
+      console.log("No file");
+    }
+
+    $.ajax({
+      data : fd, 
+      type : 'POST',
+      url : '/dashboard/addcif'
+    })
+    .done(function(response) {
+      if (response.error) {
+        console.log('there is an error');
+      }
+      else {
+        console.log('it is ok');
+      }
+    });
+
+  });
+
+}

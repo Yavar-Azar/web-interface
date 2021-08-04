@@ -1,9 +1,20 @@
 {% extends 'layout.html' %}
 
 {% block body %}
-  <h1>Our DataBase</h1>
+  <h1>DataBase</h1>
+  <hr>
+  <hr>
   <h2> CIF Collection </h2>
+  
+  <ul class="list-group">
+    {% for ciffile in cifdata %}
+      <li class="list-group-item"><a href="singlecif/{{ciffile.id}}">{{ciffile.cifname}}</a></li>
+    {% endfor %}
+  </ul>
 
+
+
+  <hr>  <hr>
   <h2> Thermodynamic Coefficeients </h2>
   <h2> Elastic Constants </h2>
 
