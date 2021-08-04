@@ -4,10 +4,53 @@
   <h2>{{singlecif.cifname}}</h2>
   <small>Created by {{singlecif.author}}</small>
   <hr>
+  <hr>
+  <h2>Crystallographic Data</h2>
   <div>
     <div style="display: inline-block;">
          <h4 >Space group is  <span style="color:magenta">{{singlecif.spg}} </span> </h4>
     </div>
    <h4>Chemical Symbol is <span style="color:magenta">{{singlecif.symbol}}</span></h4>
+
   </div>
+
+ <div class="alert" style="background-color: #ffcccc; color: gray;">
+  <h3>The below data is just the test.</h3>
+</div>
+
+  <hr>
+   <p id="arraydata" >
+          
+   </p>
+  <hr>
+
+<div style="width:flex;height:20px;background-color:#ffcccc;"></div>
+<h2>Mechanical Data</h2>
+<h3>Elastic constants</h3>
+
+
+
+<hr>
+<div style="width:flex;height:20px;background-color:#ffcccc;"></div>
+<h2>Thermo Data</h2>
+<hr>
+<h3>Thermal Conductivity</h3>
+
+
+ 
+  {% block scripts %}
+ 
+ <script type="text/javascript">
+      let data={{jsondata}};
+      let datalen =  data.length
+
+      for (var i = 0; i < datalen; i++) {
+      arraydata.innerHTML += data[i][0].toFixed(3)+"&nbsp&nbsp&nbsp"+data[i][1].toFixed(3)+"&nbsp&nbsp&nbsp"+data[i][2].toFixed(3)+"<br>";
+      }
+
+
+      
+ </script>
+
+{% endblock %}
 {% endblock %}

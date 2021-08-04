@@ -6,6 +6,9 @@ from wtforms import Form, StringField, TextAreaField, PasswordField, validators 
 from passlib.hash import sha256_crypt
 from functools import wraps
 
+import json
+
+import numpy as np
 
 from flask_wtf import FlaskForm
 from flask_wtf.file import FileField, FileRequired, FileAllowed
@@ -215,7 +218,11 @@ def onecif(id):
 
     singlecif = cur.fetchone()
 
-    return render_template('singlecif.html', singlecif=singlecif)
+    test = np.random.rand(5,3)
+    templist = test.tolist()
+    tempjson = json.dumps(templist)
+
+    return render_template('singlecif.html', singlecif=singlecif, jsondata=tempjson)
 
 
 
@@ -453,6 +460,9 @@ def add_article():
 # Edit Article
 @app.route('/edit_article/<string:id>', methods=['GET', 'POST'])
 @is_logged_in
+@csrf.exempt
+
+
 def edit_article(id):
     # Create cursor
     cur = mysql.connection.cursor()
@@ -468,6 +478,7 @@ def edit_article(id):
     # Populate article form fields
     form.title.data = article['title']
     form.body.data = article['body']
+
 
     if request.method == 'POST' and form.validate():
         title = request.form['title']
@@ -493,6 +504,8 @@ def edit_article(id):
 # Delete Article
 @app.route('/delete_article/<string:id>', methods=['POST'])
 @is_logged_in
+@csrf.exempt
+
 def delete_article(id):
     # Create cursor
     cur = mysql.connection.cursor()
