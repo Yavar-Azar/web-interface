@@ -218,7 +218,7 @@ def onecif(id):
 
     singlecif = cur.fetchone()
 
-    test = np.random.rand(5,3)
+    test = np.random.rand(5,3)  
     templist = test.tolist()
     tempjson = json.dumps(templist)
 
@@ -498,7 +498,6 @@ def edit_article(id):
         flash('Article Updated', 'success')
 
         return redirect(url_for('dashboard'))
-
     return render_template('edit_article.html', form=form)
 
 # Delete Article

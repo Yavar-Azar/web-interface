@@ -59,6 +59,8 @@ def pwinpgen(ciffile, pseudodict, inp_data):
         name of cif file.
     pseudodict : dict
         dictionary containing pseudo files.
+    inp_data :dict
+    inputs of quantum espresso
 
     Returns
     -------
@@ -91,3 +93,19 @@ def pwinpgen(ciffile, pseudodict, inp_data):
     write(pwiname,test, input_data=inp_data, pseudopotentials=pseudodict, crystal_coordinates=True)     
 
     return
+
+
+
+#           inp_data={'prefix':input_form.prefix.data, 'electron_maxstep':input_form.nstep.data,'outdir':passdata["workdir"][-1],
+#         'pseudo_dir': passdata["workdir"][-1], 'tstress':True, 'tprnfor':True,'calculation':input_form.calculation.data, 
+#        'ecutrho':float(input_form.ecutrho.data),'verbosity':'high',
+#             'ecutwfc':float(input_form.ecut.data), 'diagonalization': input_form.orthomethod.data, 'occupations':'smearing',
+#             'smearing':'mp', 'mixing_mode':'plain', 'mixing_beta':float(input_form.mixbeta.data),
+#             'degauss':float(input_form.degauss.data), 'nspin':1}
+#
+#
+#
+#
+#
+#
+#
