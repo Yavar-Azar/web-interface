@@ -1,0 +1,56 @@
+
+
+
+External packages:
+
+1- Atomistic modelings:
+
+1.1- Quantum-espresso
+1.2- Lammps
+1.3- AIMSGB
+1.4- Abinit
+1.5- ASE (Atomic simulation envirobment)
+1.6- SPPARKS
+1.7- KMCLIB
+1.8- Nascam
+1.9- Zacros
+
+
+
+
+
+2- Mesoscale
+
+2.1-  
+2.2- 
+2.3- 
+
+
+
+
+
+
+
+
+
+
+3- Macro
+
+3.1- FRAPCON
+
+
+
+-------------------------------------------------------------------------
+
+Codes developed in Group.
+
+
+
+
+
+MSFGR (Multiscale Fission gas release)
+
+
+
+
+
