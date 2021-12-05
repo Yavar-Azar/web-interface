@@ -46,6 +46,32 @@ Codes developed in Group.
 
 
 
+python-functions
+
+
+--------------------------
+-----  Ghavami------------
+1- Input parameter, We have wrote parameters for inputs of quantum espresso and in the atomic section. About 743 lines.
+2- NEB,             This method have calculated the Nudged Elastic Band that we have calculated gas diffiussion for Xe in the UO2 crystal.
+                    About 189 lines.
+3- DFT+U,           calculation of DFT using Habbard model in the heavy atomics.  About 40 lines.
+4- Boltztrap,       calculation  of thermodynamic properties. About 253 lines.
+KMc -----> Kinetic Monte Carlo
+C++   1- source code-1 + input-1 , This section have wrote by C++ program and calculated gas diffiussion and generated boble in the crystal for model-1. About 411 lines for source and 14 lines for input1.
+
+      2- source code-2 + input-2, This section have wrote by C++ program and calculated gas diffiussion and generated boble in the crystal  for model-2. About 457 lines for source and 20 lines for input2.
+      We are using Spparks, KMClib, Nascam and Zacros package for calculation of KMC.
+I have wrote python code for postprocessing of quantum group.
+
+
+------------------------
+---- Gharib ------------
+We are using LAMMPS as main package for molecular dynamics (MD) simulations. Also, in the near future, in addition to classical MD calculations atom-to-contium is also used.
+1- pizza.py sub-package is used for some pre- and post-processing data for MD analysis.
+2- Properties calculation, in particular thermal transport (thermal conductivity as a key parameter) is calculated for UO2, and MOXs (e.g., UO2-PuO2). In the following, mechanical propeties will be calculated.
+3- Some post-processing programs (about 50 to 200 lines) were used to calculate thermal conductivty values as a function of temperature, impurities, and defects concentration. These codes are in the python-functions for EMD, NEMD, and RNEMD approaches. About 400 lines for each approach.  
+
+
 
 
 MSFGR (Multiscale Fission gas release)

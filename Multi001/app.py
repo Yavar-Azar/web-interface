@@ -655,6 +655,21 @@ def inpvalues():
 
 #####################------------------------------------  END OF QE
 
+# calc
+@app.route('/mdcalc')
+def mdcalc():
+    return render_template('mdcalc.html')
+
+
+
+
+
+
+
+# calc
+@app.route('/fgr')
+def fgr():
+    return render_template('fgr.html')
 
 
 @app.route('/gbcalc', methods=['GET', 'POST'])
@@ -674,7 +689,7 @@ def gbcalc():
             print("    Make GB IS active")
         else:
             print("nothinf")
-    return
+    return render_template('gbcalc.html')
 
         
 
