@@ -1,3 +1,5 @@
-An example of a form submitted using AJAX with jQuery and Flask.
+# GB builder
 
-Watch the video where I write the code here: https://youtu.be/IZWtHsM3Y5A 
+
+##  how to oopen several fil;es in jquery and flask
+
